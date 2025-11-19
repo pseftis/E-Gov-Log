@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Gov Portal</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url("/static/images/bg.jpg") no-repeat center center/cover;  /* ✅ background image */
+            font-family: Arial, sans-serif;
+        }
+
+        .form-box {
+            width: 450px;
+            padding: 30px;
+            background: rgba(255, 165, 0, 0.85); /* ✅ Slight orange with transparency */
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            backdrop-filter: blur(4px); /* ✅ Smooth glass effect */
+        }
+
+        h2 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: white;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 14px;
+        }
+
+        .btn-primary-custom {
+            width: 100%;
+            background: #004a8f;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-primary-custom:hover {
+            background: #00376b;
+        }
+
+        p {
+            text-align: center;
+            color: white;
+            margin-top: 12px;
+        }
+
+        a {
+            color: #0018ff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>

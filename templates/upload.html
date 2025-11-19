@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Logs - E-Governance Server Log System</title>
+    <style>
+        body { margin:0; padding:0; background:#e9eef6; font-family: Arial, sans-serif; }
+        header { background:#0052D4; padding:18px; text-align:center; color:white; font-size:28px; font-weight:bold; letter-spacing:1px; }
+        .upload-box { width: 480px; margin: 40px auto; background:white; padding:35px; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,.08); }
+        label { font-size:16px; font-weight:bold; margin-top:15px; display:block; }
+        select, input[type="file"] { width:100%; padding:10px; margin-top:8px; border-radius:8px; border:1px solid #cfd6e1; font-size:15px; background:#f9fbff; }
+        .btn { width:100%; padding:12px; background:#0052D4; border:none; color:white; font-size:18px; border-radius:10px; margin-top:25px; cursor:pointer; }
+        .btn:hover { background:#003e9f; }
+        .nav { text-align:center; margin-top:10px; }
+        .nav a { margin:0 8px; text-decoration:none; color:#0052D4; }
+    </style>
+</head>
+<body>
+<header>Upload Logs - E-Governance Server Log Monitoring System</header>
+
+<div class="upload-box">
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <label>Select Department:</label>
+    <select name="department" required>
+        <option value="">-- Select Department --</option>
+        <option>Revenue Department</option>
+        <option>Police / Security</option>
+        <option>Health Services</option>
+        <option>Municipal Corporation</option>
+        <option>IT & Support</option>
+    </select>
+
+    <label>Select User Role:</label>
+    <select name="role" required>
+        <option value="">-- Select Role --</option>
+        <option>Admin</option>
+        <option>Auditor</option>
+        <option>Technical Officer</option>
+        <option>Guest Viewer</option>
+    </select>
+
+    <label>Select Log Type:</label>
+    <select name="log_type" required>
+        <option value="">-- Select Log Type --</option>
+        <option>Server Log</option>
+        <option>Application Log</option>
+        <option>Security Log</option>
+        <option>Audit Log</option>
+    </select>
+
+    <label>Upload Log File:</label>
+    <input type="file" name="file" required>
+
+    <button class="btn" type="submit">Upload Log</button>
+</form>
+<div class="nav">
+    <a href="/dashboard/">Go to Dashboard</a>
+</div>
+</div>
+
+</body>
+</html>

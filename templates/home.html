@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="center-box">
+    <div class="form-card text-center">
+        <h2>Welcome to E-Gov System</h2>
+
+        {% if user.is_authenticated %}
+            <a href="/dashboard/" class="btn-main mt-3">Go to Dashboard</a>
+        {% else %}
+            <a href="/register/" class="btn-main mt-3">Register</a>
+            <a href="/accounts/login/" class="btn-outline mt-3">Login</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

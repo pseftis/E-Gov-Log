@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - Log Records</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #eef3f9; margin: 0; padding: 0; }
+        header { background: #0052D4; color: white; padding: 15px; text-align: center; font-size: 26px; }
+        table { width: 92%; border-collapse: collapse; margin: 24px auto; background: white; box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+        th, td { padding: 12px; border-bottom: 1px solid #e7ebf3; text-align: center; }
+        th { background: #003ea6; color: white; position: sticky; top: 0; }
+        tr:hover { background: #f6f9ff; }
+        .btn { display: inline-block; padding: 8px 18px; background: #0052D4; color: white; text-decoration: none; border-radius: 6px; }
+        .btn:hover { background: #003ea0; }
+        .top-buttons { margin: 16px; text-align: center; }
+    </style>
+</head>
+<body>
+<header>Log Dashboard</header>
+<div class="top-buttons">
+    <a href="/upload/" class="btn">+ Upload New Log</a>
+</div>
+<table>
+    <tr>
+        <th>Department</th>
+        <th>User Role</th>
+        <th>Log Type</th>
+        <th>File</th>
+        <th>Uploaded Time</th>
+    </tr>
+    {% for log in logs %}
+    <tr>
+        <td>{{ log.department }}</td>
+        <td>{{ log.role }}</td>
+        <td>{{ log.log_type }}</td>
+        <td><a class="btn" href="{{ log.file.url }}" download>Download</a></td>
+        <td>{{ log.upload_time }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="5">No logs yet. <a href="/upload/">Upload one</a>.</td></tr>
+    {% endfor %}
+</table>
+</body>
+</html>
